@@ -14,12 +14,12 @@ Sample ciphertext file looks like:
 
 Usage
 ===================================
-# Create a AWS KMS master key (currently costs $1/mo) and record its keyid. 
-# Add the keyid to kms-encrypt.rb
-# Add an IAM user or role as 'key usage' authorized user.
-# Configure the AWS credentials as you normally would (I used an IAM instance role rather than explicit access keys)
-# Call kms-encrypt.rb with an input file and redirect the output to a ciphertext file.
-# Call kms-decrypt.rb with a reference to the ciphertext file.
+1. Create a AWS KMS master key (currently costs $1/mo) and record its keyid. 
+2. Add the keyid to kms-encrypt.rb
+3. Add an IAM user or role as 'key usage' authorized user.
+4. Configure the AWS credentials as you normally would (I used an IAM instance role rather than explicit access keys)
+5. Call kms-encrypt.rb with an input file and redirect the output to a ciphertext file.
+6. Call kms-decrypt.rb with a reference to the ciphertext file.
 ``` 
 $ kms-encrypt.rb /input/file/here >ciphertext.out
 $ kms-decrypt.rb ciphertext.out
