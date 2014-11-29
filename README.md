@@ -11,3 +11,16 @@ Sample interim file looks like:
   "datakey": "CiAZM5lfpml79/xq2DrOPUKm4aSyNamrxnGq6oBiEkJ3yBKnAQEBAwB4GTOZX6Zpe/f8atg6zj1CpuGksjWpq8ZxquqAYhJCd8gAAAB+MHwGCSqGSIb3DQEHBqBvMG0CAQAwaAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAxDH8IEyvf8fr3qtQYCARCAO7elZFDPuqPXJzjP5iciFabj5820Q6ZTdnZvdWyCZMhRyx0qQtoQL7tDVVMGH3yrlNY909grcx1nERWe"
 }
 ```
+
+Usage
+===================================
+Create a AWS KMS master key (currently costs $1/mo) and record its keyid. 
+Add the keyid to kms-encrypt.rb
+Add an IAM user or role as 'key usage' authorized user.
+Configure the AWS credentials as you normally would (I used an IAM instance role rather than explicit access keys)
+Call kms-encrypt.rb with an input file and redirect the output to a ciphertext file.
+Call kms-decrypt.rb with a reference to the ciphertext file.
+``` 
+$ kms-encrypt.rb /input/file/here >ciphertext.out
+$ kms-decrypt.rb ciphertext.out
+```
