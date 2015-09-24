@@ -26,5 +26,5 @@ resp = kms.generate_data_key(
 )
 cipher = Gibberish::AES.new(resp[:plaintext])
 
-outputhash = { 'ciphertext' => cipher.enc(validatorkey), 'datakey' => Base64.strict_encode64(resp.ciphertext_blob)}
+outputhash = { 'ciphertext' => cipher.encrypt(validatorkey), 'datakey' => Base64.strict_encode64(resp.ciphertext_blob)}
 puts JSON.pretty_generate(outputhash)
