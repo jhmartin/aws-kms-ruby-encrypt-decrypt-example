@@ -1,13 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    aws-sdk-core (2.1.15)
+    aws-sdk-core (2.3.9)
       jmespath (~> 1.0)
     gibberish (2.0.0)
-    jmespath (1.0.2)
-      multi_json (~> 1.0)
+    jmespath (1.2.4)
+      json_pure (>= 1.8.1)
     json (1.8.3)
-    multi_json (1.11.2)
+    json_pure (1.8.3)
 
 PLATFORMS
   ruby
