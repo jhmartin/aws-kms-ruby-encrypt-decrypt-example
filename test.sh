@@ -1,4 +1,5 @@
 #!/bin/sh
+set -x
 echo FOO > test.input
 bundle exec ruby ./kms-encrypt.rb test.input | tee test.encrypted
 bundle exec ruby ./kms-decrypt.rb test.encrypted | tee test.decrypted
@@ -10,4 +11,5 @@ tar  --strip-components=1 -xvzf gemnasium_0.2.9_linux_amd64.tar.gz gemnasium_0.2
 
 export GEMNASIUM_TESTSUITE="true"
 export GEMNASIUM_PROJECT_SLUG="github.com/jhmartin/aws-kms-ruby-encrypt-decrypt-example"
+set +x
 ./gemnasium --token $GEMNASIUM_TOKEN autoupdate run
