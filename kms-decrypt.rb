@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 require 'rubygems'
-require 'aws-sdk-core'
+require 'aws-sdk'
 require 'pp'
 require 'base64'
 require 'gibberish'
@@ -21,5 +21,5 @@ cleartextkey = kms.decrypt(:ciphertext_blob => datakey,
 )
 
 cipher = Gibberish::AES.new(cleartextkey.plaintext)
-cleartext = cipher.dec(contents['ciphertext'])
+cleartext = cipher.decrypt(contents['ciphertext'])
 puts cleartext
