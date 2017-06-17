@@ -1,0 +1,10 @@
+engines:
+  rubocop:
+    enabled: true
+  markdownlint:
+    enabled: true
+    
+ratings:
+   paths:
+   - "**.rb"
+  - "**.md"
