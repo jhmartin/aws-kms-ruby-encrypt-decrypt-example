@@ -1,0 +1,3 @@
+project_name: aws-kms-ruby-encrypt-decrypt-example    # A name to remember your project.
+project_slug: github.com/jhmartin/aws-kms-ruby-encrypt-decrypt-example                # Unique slug for this project. Get it on the "project settings" page.
+project_branch: master # /!\ If you don't use git, remove this line
