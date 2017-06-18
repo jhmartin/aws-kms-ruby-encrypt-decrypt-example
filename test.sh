@@ -10,6 +10,7 @@ curl -LsO https://github.com/gemnasium/toolbelt/releases/download/0.2.9/gemnasiu
 tar  --strip-components=1 -xvzf gemnasium_0.2.9_linux_amd64.tar.gz gemnasium_0.2.9_linux_amd64/gemnasium
 
 export GEMNASIUM_TESTSUITE="true"
-export GEMNASIUM_PROJECT_SLUG="github.com/jhmartin/aws-kms-ruby-encrypt-decrypt-example"
 export REVISION=$CIRCLE_SHA1
-./gemnasium autoupdate run
+export BRANCH=$CIRCLE_BRANCH
+export GEMNASIUM_RAW_FORMAT=1
+./gemnasium autoupdate run 
