@@ -1,0 +1,22 @@
+version: 2
+jobs:
+   build:
+     docker:
+       - image: circleci/ruby:latest
+     steps:
+       - checkout
+
+       # Restore bundle cache
+       - type: cache-restore
+         key: bundle-{{ checksum "Gemfile.lock" }}
+
+      # Bundle install dependencies
+       - run: bundle install --path vendor/bundle
+
+       # Store bundle cache
+       - type: cache-save
+         key: bundle-{{ checksum "Gemfile.lock" }}
+         paths:
+           - vendor/bundle
+
+       - run: bash -x ./test.sh
