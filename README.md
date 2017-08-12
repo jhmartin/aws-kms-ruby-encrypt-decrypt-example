@@ -8,6 +8,8 @@ aws-kms-ruby-enrypt-decrypt-example
 Sample using AWS Key Management Service (assuming IAM roles) to generate a data key, encrypt an object with that key, 
 then decrypt it.
 
+The data key response contains a cleartext key and an encrypted key.  The cleartext key is used to encrypt the contents and then discarded. The ciphertext and encrypted key are stored together. Then KMS is asked to decrypt the data-key, and the resulting cleartext-key is used against the ciphertext to decrypt back to cleartext.
+
 Sample ciphertext file looks like:
 ```JSON
 {
