@@ -21,7 +21,7 @@ Sample ciphertext file looks like:
 Usage
 ===================================
 1. Create a AWS KMS master key (currently costs $1/mo) and record its keyid. 
-2. Add the keyid to kms-encrypt.rb
+2. Set the KEYID environmental variable to the keyid or key alias.
 3. Add an IAM user or role as 'key usage' authorized user.
 4. Configure the AWS credentials as you normally would (I used an IAM instance role rather than explicit access keys)
 5. Call kms-encrypt.rb with an input file and redirect the output to a ciphertext file.
