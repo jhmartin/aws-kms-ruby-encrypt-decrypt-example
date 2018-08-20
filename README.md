@@ -2,7 +2,6 @@ aws-kms-ruby-enrypt-decrypt-example
 ===================================
 
 [![CircleCI](https://circleci.com/gh/jhmartin/aws-kms-ruby-encrypt-decrypt-example.svg?style=svg)](https://circleci.com/gh/jhmartin/aws-kms-ruby-encrypt-decrypt-example)
-[![Dependency Status](https://gemnasium.com/badges/github.com/jhmartin/aws-kms-ruby-encrypt-decrypt-example.svg)](https://gemnasium.com/github.com/jhmartin/aws-kms-ruby-encrypt-decrypt-example)
 [![Code Climate](https://codeclimate.com/github/jhmartin/aws-kms-ruby-encrypt-decrypt-example/badges/gpa.svg)](https://codeclimate.com/github/jhmartin/aws-kms-ruby-encrypt-decrypt-example)
 
 Sample using AWS Key Management Service (assuming IAM roles) to generate a data key, encrypt an object with that key, 
