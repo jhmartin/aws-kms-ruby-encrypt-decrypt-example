@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'aws-sdk', '~> 3'
+gem 'aws-sdk-kms', '~> 1'
 gem 'gibberish'
 gem 'json'
 
