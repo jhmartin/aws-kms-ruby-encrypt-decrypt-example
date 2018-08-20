@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 require 'rubygems'
-require 'aws-sdk'
+require 'aws-sdk-kms'
 require 'pp'
 require 'base64'
 require 'gibberish'
