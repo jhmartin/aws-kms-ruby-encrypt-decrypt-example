@@ -17,7 +17,7 @@ GEM
     gibberish (2.1.1)
     jaro_winkler (1.5.4)
     jmespath (1.4.0)
-    json (2.2.0)
+    json (2.3.0)
     parallel (1.19.1)
     parser (2.6.5.0)
       ast (~> 2.4.0)
