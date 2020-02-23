@@ -3,43 +3,58 @@ GEM
   specs:
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.252.0)
-    aws-sdk-core (3.85.0)
+    aws-partitions (1.275.0)
+    aws-sdk-core (3.90.1)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-kms (1.27.0)
+    aws-sdk-kms (1.29.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.1.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
-    gibberish (2.1.1)
     jaro_winkler (1.5.4)
     jmespath (1.4.0)
     json (2.3.0)
+    kramdown (2.1.0)
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
+    mdl (0.9.0)
+      kramdown (~> 2.0)
+      kramdown-parser-gfm (~> 1.0)
+      mixlib-cli (~> 2.1, >= 2.1.1)
+      mixlib-config (>= 2.2.1, < 4)
+    mixlib-cli (2.1.5)
+    mixlib-config (3.0.6)
+      tomlrb
+    openssl (2.1.2)
     parallel (1.19.1)
-    parser (2.6.5.0)
+    parser (2.7.0.2)
       ast (~> 2.4.0)
     rainbow (3.0.0)
-    rubocop (0.78.0)
+    rexml (3.2.4)
+    rubocop (0.80.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
-      parser (>= 2.6)
+      parser (>= 2.7.0.1)
       rainbow (>= 2.2.2, < 4.0)
+      rexml
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.10.1)
-    unicode-display_width (1.6.0)
+    tomlrb (1.2.9)
+    unicode-display_width (1.6.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   aws-sdk-kms (~> 1)
-  gibberish
   json
+  mdl
+  openssl
   rubocop
 
 BUNDLED WITH
-   1.16.3
+   2.1.4
