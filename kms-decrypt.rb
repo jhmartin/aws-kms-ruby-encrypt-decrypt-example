@@ -1,9 +1,11 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
+
 require 'rubygems'
 require 'aws-sdk-kms'
 require 'pp'
 require 'base64'
-require 'gibberish'
+require 'openssl'
 require 'json'
 
 if ARGV[0].nil?
@@ -16,8 +18,17 @@ kms = Aws::KMS::Client.new(region: 'us-east-1')
 datakey = Base64.strict_decode64(contents['datakey'])
 
 cleartextkey = kms.decrypt(ciphertext_blob: datakey,
-                           encryption_context: { 'KeyType' => 'Some descriptive text here' })
+                           encryption_context: {
+                             'KeyType' => 'Some descriptive text here'
+                           })
 
-cipher = Gibberish::AES.new(cleartextkey.plaintext)
-cleartext = cipher.decrypt(contents['ciphertext'])
-puts cleartext
+alg = 'AES-256-CBC'
+decode_cipher = OpenSSL::Cipher.new(alg)
+decode_cipher.decrypt
+decode_cipher.key = cleartextkey.plaintext
+decode_cipher.iv = Base64.strict_decode64(contents['iv'])
+
+plaintext = decode_cipher.update(
+  Base64.strict_decode64(contents['ciphertext'])
+) + decode_cipher.final
+puts plaintext
