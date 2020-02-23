@@ -31,8 +31,8 @@ kmsresponse = kms.generate_data_key(
   key_spec: 'AES_256'
 )
 alg = 'AES-256-CBC'
-iv = OpenSSL::Cipher::Cipher.new(alg).random_iv
-aes = OpenSSL::Cipher::Cipher.new(alg)
+iv = OpenSSL::Cipher.new(alg).random_iv
+aes = OpenSSL::Cipher.new(alg)
 aes.encrypt
 aes.key = kmsresponse['plaintext']
 aes.iv = iv

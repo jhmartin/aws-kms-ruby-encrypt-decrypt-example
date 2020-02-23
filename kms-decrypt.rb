@@ -23,7 +23,7 @@ cleartextkey = kms.decrypt(ciphertext_blob: datakey,
                            })
 
 alg = 'AES-256-CBC'
-decode_cipher = OpenSSL::Cipher::Cipher.new(alg)
+decode_cipher = OpenSSL::Cipher.new(alg)
 decode_cipher.decrypt
 decode_cipher.key = cleartextkey.plaintext
 decode_cipher.iv = Base64.strict_decode64(contents['iv'])
