@@ -27,7 +27,7 @@ GEM
     mixlib-cli (2.1.5)
     mixlib-config (3.0.6)
       tomlrb
-    openssl (2.1.2)
+    openssl (2.2.0)
     parallel (1.19.1)
     parser (2.7.1.2)
       ast (~> 2.4.0)
