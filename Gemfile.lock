@@ -17,7 +17,7 @@ GEM
     chef-utils (16.4.41)
     jmespath (1.4.0)
     json (2.5.1)
-    kramdown (2.3.0)
+    kramdown (2.3.1)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
