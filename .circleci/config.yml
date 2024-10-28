@@ -23,16 +23,16 @@ jobs:
 
       # Bundle install dependencies
        - run:
-         name: Bundler
-         command: bundle install --path vendor/bundle
+           name: Bundler
+           command: bundle install --path vendor/bundle
 
        # Store bundle cache
        - save_cache:
-         name: Save bundles
-         key: bundle-{{ checksum "Gemfile.lock" }}
-         paths:
-           - vendor/bundle
+           name: Save bundles
+           key: bundle-{{ checksum "Gemfile.lock" }}
+           paths:
+             - vendor/bundle
 
        - run:
-         name: Run Test
-         command: bash -x ./test.sh
+           name: Run Test
+           command: bash -x ./test.sh
