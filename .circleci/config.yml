@@ -15,10 +15,6 @@ jobs:
           role_arn: arn:aws:iam::186675908400:role/circleci-kms
           role_session_name: CircleCI
 
-       - run:
-           name: Check STS
-           command: aws sts get-caller-identity
-
         # Restore bundle cache
        - restore_cache:
            key: bundle-{{ checksum "Gemfile.lock" }}
@@ -38,6 +34,8 @@ jobs:
        - run:
            name: Run Test
            command: bash -x ./test.sh
+           environment:
+             AWS_PROFILE: OIDC-PROFILE
 
 workflows:
   aws-cli:
