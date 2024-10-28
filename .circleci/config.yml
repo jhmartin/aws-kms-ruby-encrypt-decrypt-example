@@ -4,7 +4,6 @@ orbs:
 jobs:
    build:
      environment:
-       AWS_PROFILE: "OIDC-PROFILE"
        AWS_REGION: us-east-1
      docker:
        - image: cimg/ruby:2.7.0
