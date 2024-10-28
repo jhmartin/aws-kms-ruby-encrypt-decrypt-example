@@ -34,6 +34,8 @@ jobs:
        - run:
            name: Run Test
            command: bash -x ./test.sh
+           environment:
+             AWS_PROFILE: OIDC-PROFILE
 
 workflows:
   aws-cli:
