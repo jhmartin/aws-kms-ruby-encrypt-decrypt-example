@@ -11,7 +11,7 @@ jobs:
      steps:
        - checkout
 
-      - aws-cli/setup:
+       - aws-cli/setup:
           profile_name: OIDC-PROFILE
           role_arn: arn:aws:iam::186675908400:role/circleci-kms
           role_session_name: CircleCI
