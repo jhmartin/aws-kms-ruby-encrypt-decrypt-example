@@ -39,3 +39,9 @@ jobs:
        - run:
            name: Run Test
            command: bash -x ./test.sh
+
+workflows:
+  aws-cli:
+    jobs:
+      - build:
+          context: aws
