@@ -1,21 +1,11 @@
-version: 2
-orbs:
- # import CircleCI's aws-cli orb
- aws-cli: circleci/aws-cli@3.1
-
+version: '2.1'
 jobs:
    build:
      docker:
        - image: cimg/ruby:2.7.0
+         aws_auth:  'arn:aws:iam::186675908400:role/circleci-kms'
      steps:
        - checkout
-
-       - aws-cli/setup:
-         role-arn: 'arn:aws:iam::186675908400:role/circleci-kms'
-         aws-region: "us-west-2"
-         # optional parameters
-         role-session-name: "CircleCI"
-         session-duration: 90
 
        # Restore bundle cache
        - type: cache-restore
@@ -31,8 +21,3 @@ jobs:
            - vendor/bundle
 
        - run: bash -x ./test.sh
-workflows:
- OIDC-with-AWS:
-   jobs:
-     - build:
-         context: aws
