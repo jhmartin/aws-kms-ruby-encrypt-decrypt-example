@@ -11,11 +11,11 @@ jobs:
        - checkout
 
        - aws-cli/setup:
-           role-arn: 'arn:aws:iam::186675908400:role/circleci-kms'
-           aws-region: "us-west-2"
-           # optional parameters
-           role-session-name: "CircleCI"
-           session-duration: 90
+         role-arn: 'arn:aws:iam::186675908400:role/circleci-kms'
+         aws-region: "us-west-2"
+         # optional parameters
+         role-session-name: "CircleCI"
+         session-duration: 90
 
        # Restore bundle cache
        - type: cache-restore
