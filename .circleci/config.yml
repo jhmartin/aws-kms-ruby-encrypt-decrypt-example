@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  aws-cli: circleci/aws-cli@3.1.5
+  aws-cli: circleci/aws-cli@5.1.1
 jobs:
    build:
      environment:
@@ -11,14 +11,14 @@ jobs:
      steps:
        - checkout
        - aws-cli/setup:
-          role-arn: "arn:aws:iam::186675908400:role/circleci-kms"
-          aws-region: AWS_REGION
-          # optional parameters
-          profile-name: "OIDC-PROFILE"
-          role-session-name: "CircleCI"
-          session-duration: "1800"
+          profile_name: default
+       - aws-cli/role_arn_setup:
+          profile_name: OIDC-PROFILE
+          role_arn: arn:aws:iam::186675908400:role/circleci-kms
+          source_profile: default
 
-       # Restore bundle cache
+
+        # Restore bundle cache
        - restore_cache:
            key: bundle-{{ checksum "Gemfile.lock" }}
 
