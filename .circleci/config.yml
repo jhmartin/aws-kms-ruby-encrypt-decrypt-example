@@ -22,7 +22,7 @@ jobs:
          key: bundle-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
-       - run
+       - run:
          name: Bundler
          command: bundle install --path vendor/bundle
 
