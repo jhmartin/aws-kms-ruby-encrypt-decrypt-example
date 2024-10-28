@@ -20,7 +20,7 @@ jobs:
 
        # Restore bundle cache
        - restore_cache:
-         key: bundle-{{ checksum "Gemfile.lock" }}
+           key: bundle-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
        - run:
