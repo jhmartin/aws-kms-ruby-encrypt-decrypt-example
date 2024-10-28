@@ -18,6 +18,10 @@ jobs:
           source_profile: default
 
 
+       - run:
+           name: Check STS
+           command: aws sts get-caller-identity
+
         # Restore bundle cache
        - restore_cache:
            key: bundle-{{ checksum "Gemfile.lock" }}
