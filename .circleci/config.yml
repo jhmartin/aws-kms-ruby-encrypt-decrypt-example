@@ -5,13 +5,14 @@ jobs:
    build:
      environment:
        AWS_PROFILE: "OIDC-PROFILE"
+       AWS_REGION: us-west-2
      docker:
        - image: cimg/ruby:2.7.0
      steps:
        - checkout
        - aws-cli/setup:
           role-arn: "arn:aws:iam::186675908400:role/circleci-kms"
-          aws-region: "us-east-1"
+          aws-region: AWS_REGION
           # optional parameters
           profile-name: "OIDC-PROFILE"
           role-session-name: "CircleCI"
