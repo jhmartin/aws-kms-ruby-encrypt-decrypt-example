@@ -9,7 +9,6 @@ jobs:
        - image: cimg/ruby:2.7.0
      steps:
        - checkout
-
        - aws-cli/setup:
           role-arn: "arn:aws:iam::186675908400:role/circleci-kms"
           aws-region: "us-east-1"
@@ -19,16 +18,21 @@ jobs:
           session-duration: "1800"
 
        # Restore bundle cache
-       - type: cache-restore
+       - restore_cache:
          key: bundle-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
-       - run: bundle install --path vendor/bundle
+       - run
+         name: Bundler
+         command: bundle install --path vendor/bundle
 
        # Store bundle cache
-       - type: cache-save
+       - save_cache:
+         name: Save bundles
          key: bundle-{{ checksum "Gemfile.lock" }}
          paths:
            - vendor/bundle
 
-       - run: bash -x ./test.sh
+       - run:
+         name: Run Test
+         command: bash -x ./test.sh
