@@ -10,13 +10,11 @@ jobs:
        - image: cimg/ruby:2.7.0
      steps:
        - checkout
-       - aws-cli/setup:
-          profile_name: default
-       - aws-cli/role_arn_setup:
+
+      - aws-cli/setup:
           profile_name: OIDC-PROFILE
           role_arn: arn:aws:iam::186675908400:role/circleci-kms
-          source_profile: default
-
+          role_session_name: CircleCI
 
        - run:
            name: Check STS
