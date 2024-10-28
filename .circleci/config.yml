@@ -1,4 +1,4 @@
-version: 2
+version: '2.1'
 orbs:
  # import CircleCI's aws-cli orb
  aws-cli: circleci/aws-cli@3.1
@@ -31,3 +31,8 @@ jobs:
            - vendor/bundle
 
        - run: bash -x ./test.sh
+workflows:
+ OIDC-with-AWS:
+   jobs:
+     - build:
+         context: aws
