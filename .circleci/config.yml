@@ -4,13 +4,13 @@ orbs:
 jobs:
    build:
      environment:
-       AWS_PROFILE: OIDC-PROFILE
+       AWS_PROFILE: "OIDC-PROFILE"
      docker:
        - image: cimg/ruby:2.7.0
      steps:
        - checkout
 
-      - aws-cli/setup:
+       - aws-cli/setup:
           role-arn: "arn:aws:iam::186675908400:role/circleci-kms"
           aws-region: "us-east-1"
           # optional parameters
