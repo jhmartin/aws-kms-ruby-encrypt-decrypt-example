@@ -35,7 +35,7 @@ GEM
       tomlrb
     mixlib-shellout (3.2.7)
       chef-utils
-    openssl (3.2.0)
+    openssl (3.2.1)
     parallel (1.26.3)
     parser (3.3.6.0)
       ast (~> 2.4.1)
