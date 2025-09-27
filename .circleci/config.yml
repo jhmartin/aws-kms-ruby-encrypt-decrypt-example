@@ -15,9 +15,9 @@ jobs:
           role_arn: arn:aws:iam::186675908400:role/circleci-kms
           role_session_name: CircleCI
 
-        # Restore bundle cache
-       - restore_cache:
-           key: bundle-{{ checksum "Gemfile.lock" }}
+#        # Restore bundle cache
+#       - restore_cache:
+#           key: bundle-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
        - run:
