@@ -23,7 +23,7 @@ GEM
       concurrent-ruby
     concurrent-ruby (1.2.2)
     jmespath (1.6.2)
-    json (2.15.2)
+    json (2.16.0)
     kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
