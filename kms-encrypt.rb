@@ -7,9 +7,33 @@ require 'openssl'
 require 'aws-sdk-kms'
 require 'base64'
 require 'json'
+require 'optparse'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: kms-encrypt.rb [options] INPUTFILE'
+  opts.on('--output FILE', 'Output JSON file path') do |f|
+    options[:output] = f
+  end
+  opts.on('--device DEVICE', 'LUKS device path') do |d|
+    options[:device] = d
+  end
+end.parse!
 
 if ARGV[0].nil?
-  puts 'Usage: encrypt.rb INPUTFILE'
+  puts 'Usage: kms-encrypt.rb [options] INPUTFILE'
+  puts '  --output FILE    Output JSON file path'
+  puts '  --device DEVICE  LUKS device path'
+  exit 1
+end
+
+if options[:device].nil?
+  puts 'Error: --device is required'
+  exit 1
+end
+
+unless system('cryptsetup', '--batch-mode', 'isLuks', options[:device])
+  puts "Error: #{options[:device]} is not a valid LUKS device"
   exit 1
 end
 
@@ -41,9 +65,17 @@ cipher = aes.update(plaintext)
 cipher << aes.final
 
 cipher64 = Base64.strict_encode64(cipher)
-outputhash = { 'ciphertext' => cipher64,
+outputhash = { 'device' => options[:device],
+               'ciphertext' => cipher64,
                'iv' => Base64.strict_encode64(iv),
                'datakey' => Base64.strict_encode64(
                  kmsresponse.ciphertext_blob
                ) }
-puts JSON.pretty_generate(outputhash)
+
+json_output = JSON.pretty_generate(outputhash)
+
+if options[:output]
+  File.write(options[:output], json_output)
+else
+  puts json_output
+end
